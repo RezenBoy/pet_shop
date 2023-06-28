@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:pet_shop/pet_shop/buynow.dart';
 import 'package:pet_shop/pet_shop/home.dart';
 import 'package:pet_shop/pet_shop/splash.dart';
 import 'package:pet_shop/pet_shop/categories.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 void main(){
   runApp(ResponsiveSizer(
     builder: (context,orientation, screenType) {
-      return const MaterialApp(
-        home: Home(),
+      return MaterialApp(
+        theme:ThemeData(
+          // fontFamily: 'Cairo'
+        ),
+        home: const BuyNow(),
       );
     }
   ));
+}
+ThemeData _buildTheme(brightness) {
+  var baseTheme = ThemeData(brightness: brightness);
+
+  return baseTheme.copyWith(
+    // textTheme: GoogleFonts.latoTextTheme(baseTheme.textTheme),
+  );
 }
 
 class MyApp extends StatelessWidget {
