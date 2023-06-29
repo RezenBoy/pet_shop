@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pet_shop/pet_shop/home.dart';
 
-class splash extends StatelessWidget {
+class splash extends StatefulWidget {
   const splash({super.key});
+
+  @override
+  State<splash> createState() => _splashState();
+}
+
+class _splashState extends State<splash> {
+
+  final List <String> lst = [];
+    List <String> lst1 = const ["abc"];
+
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3),(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> Home(lst)));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

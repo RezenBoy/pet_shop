@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pet_shop/pet_shop/categories.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home(List<String> lst, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,9 @@ class Home extends StatelessWidget {
         child: FloatingActionButton(
             child: Image.asset('assets/images/icon.png'),
             backgroundColor: Color(0xffFF7F48),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdPage()));
+            }),
       ),
     );
   }

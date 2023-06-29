@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pet_shop/pet_shop/buynow.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -22,11 +23,12 @@ class ThirdPage extends StatelessWidget {
       required Widget petImage,
       required String tittleText,
       required EdgeInsetsGeometry downPadding,
+      Color selectedColor = Colors.white,
     }) {
       return Container(
         padding: downPadding,
         decoration: BoxDecoration(
-          image:  backgroudImage,
+          image: backgroudImage,
         ),
         child: Row(
           children: [
@@ -42,21 +44,24 @@ class ThirdPage extends StatelessWidget {
                         text: TextSpan(
                             text: tittleText,
                             style: TextStyle(
-                                fontSize: 22.sp, fontWeight: FontWeight.w500),
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.w500,
+                                color: selectedColor),
                             children: <TextSpan>[
                           TextSpan(
                             text: ' Age | 1Y',
                             style: TextStyle(
                               fontSize: 14.sp,
+                              color: selectedColor,
                             ),
                           )
                         ])),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
+                    Text(
                       'Lorem ipsum dolor sit\namet, consectetur',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: selectedColor),
                     ),
                     const SizedBox(
                       height: 10,
@@ -64,9 +69,9 @@ class ThirdPage extends StatelessWidget {
                     Text(
                       r'Price:30$',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: selectedColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: 22.sp),
+                          fontSize: 20.sp),
                     )
                   ],
                 ),
@@ -92,27 +97,30 @@ class ThirdPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 12),
                     child: Column(
                       children: [
-                        TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Search',
-                            filled: true,
-                            fillColor: const Color(0xffFCF8F2),
-                            // contentPadding: EdgeInsets.all(10),
-                            prefixIcon: Icon(
-                              Icons.search_sharp,
-                              color: const Color(0xff9F9F9F),
-                              size: 22.sp,
-                            ),
-                            // suffixIcon: Icon(Icons.cancel),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  const BorderSide(color: Color(0xffFFC368)),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  const BorderSide(color: Color(0xffFFC368)),
-                              borderRadius: BorderRadius.circular(20),
+                        SizedBox(
+                          height: 6.h,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Search',
+                              filled: true,
+                              fillColor: const Color(0xffFCF8F2),
+                              // contentPadding: EdgeInsets.all(10),
+                              prefixIcon: Icon(
+                                Icons.search_sharp,
+                                color: const Color(0xff9F9F9F),
+                                size: 22.sp,
+                              ),
+                              // suffixIcon: Icon(Icons.cancel),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Color(0xffFFC368)),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Color(0xffFFC368)),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                             ),
                           ),
                         ),
@@ -171,22 +179,32 @@ class ThirdPage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    catalog(
-                        backgroudImage:
-                            DecorationImage(image: AssetImage('assets/images/cat_background.png'),fit: BoxFit.fill),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BuyNow()));
+                      },
+                      child: catalog(
+                        backgroudImage: DecorationImage(
+                            image: AssetImage('assets/images/cat_background.png'),
+                            fit: BoxFit.fill),
                         petImage: Image.asset(
                           'assets/images/catagory_cat.png',
                           fit: BoxFit.fill,
                         ),
-                        tittleText: 'Cute Cat', downPadding: const EdgeInsets.only(bottom: 5, top: 10, left: 10),),
+                        tittleText: 'Cute Cat',
+                        downPadding:
+                            const EdgeInsets.only(bottom: 5, top: 10, left: 10),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 catalog(
-                    backgroudImage:
-                    DecorationImage(image: AssetImage('assets/images/dog_background.png'),fit: BoxFit.contain),
+                    backgroudImage: DecorationImage(
+                        image: AssetImage('assets/images/dog_background.png'),
+                        fit: BoxFit.contain),
                     petImage: SizedBox(
                       // width: 157,
                       // height: 207,
@@ -195,7 +213,10 @@ class ThirdPage extends StatelessWidget {
                         fit: BoxFit.fill,
                       ),
                     ),
-                    tittleText: 'Cute Dog',downPadding: const EdgeInsets.only(bottom: 35, top: 10, left: 10),)
+                    tittleText: 'Cute Dog',
+                    downPadding:
+                        const EdgeInsets.only(bottom: 35, top: 10, left: 10),
+                    selectedColor: Color(0xff6F4F44))
               ],
             ),
           )

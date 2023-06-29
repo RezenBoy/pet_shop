@@ -12,7 +12,7 @@ void main(){
         theme:ThemeData(
           // fontFamily: 'Cairo'
         ),
-        home: const BuyNow(),
+        home: const splash(),
       );
     }
   ));
