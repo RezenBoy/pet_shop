@@ -10,9 +10,9 @@ void main(){
     builder: (context,orientation, screenType) {
       return MaterialApp(
         theme:ThemeData(
-          // fontFamily: 'Cairo'
+          textTheme: GoogleFonts.cairoTextTheme()
         ),
-        home: const splash(),
+        home: ThirdPage(),
       );
     }
   ));
